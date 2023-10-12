@@ -1,6 +1,15 @@
-<script setup></script>
-<template>
-  <div />
-</template>
+<script setup>
+import ThemeSwitch from './components/ThemeSwitch.vue';
+import { useThemeMode } from '../stores/themeMode.js';
+const storeTheme = useThemeMode();
+</script>
 
-<style scoped></style>
+<template>
+  <div
+    :class="
+      storeTheme.isDarkMode ? 'bg-black text-white' : 'bg-white text-black'
+    "
+  >
+    <ThemeSwitch />
+  </div>
+</template>
